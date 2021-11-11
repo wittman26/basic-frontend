@@ -1,13 +1,15 @@
 <form class="ui form" [formGroup]="form" (ngSubmit)="operate()">
     <h4 class="ui dividing header">Billing Information</h4>
     <div class="field">
-      <label>Post</label>
+        <label>UserId</label>
       <div class="field">
         <input type="text" name="userId" placeholder="userId" formControlName="userId"  [readonly]="this.edit">
       </div>
       <div class="field" *ngIf="this.edit">
+        <label>id</label>
         <input type="text" name="id" placeholder="id" formControlName="id" [readonly]="this.edit">
       </div>
+      <label>Title</label>
       <div class="field">
         <input type="text" name="title" placeholder="title" formControlName="title">
       </div>

@@ -33,7 +33,7 @@ export class PosteditComponent implements OnInit {
 
   private initForm() {
     if (this.edit) {
-      this.typicodeserviceService.get(`posts?userId=${this.id}`).subscribe({
+      this.typicodeserviceService.get(`posts?id=${this.id}`).subscribe({
         next: (response: any) => {
           let userId = response[0].userId;
           let id = response[0].id;
