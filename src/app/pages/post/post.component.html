@@ -1,0 +1,54 @@
+<div class="ui segment">
+    <div>
+        <h1 class="ui header">Posts</h1>
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui two column stackable grid">
+        <div class="column">
+            <!-- Filtro -->
+            <div class="ui action input">
+                <input type="text" placeholder="userId..." [(ngModel)]="userid">
+                <button class="ui button" (click)="search(userid)">Buscar</button>
+            </div>
+        </div>
+        <div class="column">
+            <button class="ui button" (click)="search()">
+                Cargar todos
+            </button>
+            <button class="green ui button" routerLink='/new'>
+                Nuevo Post
+            </button>            
+        </div>
+
+    </div>
+    <router-outlet></router-outlet>
+
+    <div class="ui divider"></div>
+    <!-- Tabla -->
+    <div>
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>userId</th>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resul of postResults">
+                    <td>{{ resul.userId }}</td>
+                    <td>{{ resul.id }}</td>
+                    <td>{{ resul.title}}</td>
+                    <td>{{ resul.body}}</td>
+                    <td> 
+                        <button class="blue ui button" [routerLink]="['edit', resul.id]">
+                            Edit
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

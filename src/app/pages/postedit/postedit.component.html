@@ -1,0 +1,21 @@
+<form class="ui form" [formGroup]="form" (ngSubmit)="operate()">
+    <h4 class="ui dividing header">Billing Information</h4>
+    <div class="field">
+      <label>Post</label>
+      <div class="field">
+        <input type="text" name="userId" placeholder="userId" formControlName="userId"  [readonly]="this.edit">
+      </div>
+      <div class="field" *ngIf="this.edit">
+        <input type="text" name="id" placeholder="id" formControlName="id" [readonly]="this.edit">
+      </div>
+      <div class="field">
+        <input type="text" name="title" placeholder="title" formControlName="title">
+      </div>
+      <div class="field">
+        <label>Body</label>
+        <textarea name="body" placeholder="body" formControlName="body"></textarea>
+      </div>      
+     <button class="ui button" tabindex="0" type="submit" [disabled]="form.invalid">Guardar</button>
+    <div class="ui button" tabindex="0" routerLink='/'>Cancel</div>
+    </div>
+  </form>
